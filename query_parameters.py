@@ -26,6 +26,11 @@ async def read_item(item_id: str, q: Optional[str] = None, short: bool = False):
     return item
 
 
+@app.get("/items/{item_id}")
+async def read_item(item_id: str, needy: str):
+    return {"item_id": item_id, "needy": needy}
+
+
 @app.get("/users/{user_id}/items/{item_id}")
 async def read_user_item(user_id: int, item_id: str, q: Optional[str] = None,
         short: bool = False):
